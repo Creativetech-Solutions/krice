@@ -45,10 +45,10 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ (Request::is('users/view') || Request::is('users/create')) ? 'active' : '' }}"><a href="/users/view"><i class="fa fa-circle-o"></i> Manage Products</a></li>
-            <li class="{{ (Request::is('roles/view') || Request::is('roles/create') )? 'active' : '' }}"><a href="/roles/view"><i class="fa fa-circle-o"></i> Manage Categories</a></li>
-            <li class="{{ (Request::is('roles/view') || Request::is('roles/create') )? 'active' : '' }}"><a href="/roles/view"><i class="fa fa-circle-o"></i> Stock</a></li>
-            <li class="{{ (Request::is('roles/view') || Request::is('roles/create') )? 'active' : '' }}"><a href="/roles/view"><i class="fa fa-circle-o"></i> Products Batch/Version</a></li>
+            <li class="{{ (Request::is('product/view') || Request::is('product/create')) ? 'active' : '' }}"><a href="/product/view"><i class="fa fa-circle-o"></i> Manage Products</a></li>
+            <li class="{{ (Request::is('categories/view') || Request::is('categories/create') )? 'active' : '' }}"><a href="/categories/view"><i class="fa fa-circle-o"></i> Manage Categories</a></li>
+            <li class="{{ (Request::is('stock/view'))? 'active' : '' }}"><a href="/stock/view"><i class="fa fa-circle-o"></i> Stock</a></li>
+            <li class="{{ (Request::is('batch/view'))? 'active' : '' }}"><a href="/batch/view"><i class="fa fa-circle-o"></i> Products Batch/Version</a></li>
           </ul>
         </li>
         <li class=" treeview">
@@ -59,11 +59,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ (Request::is('users/view') || Request::is('users/create')) ? 'active' : '' }}"><a href="/users/view"><i class="fa fa-circle-o"></i> Manage Cities</a></li>
-            <li class="{{ (Request::is('users/view') || Request::is('users/create')) ? 'active' : '' }}"><a href="/users/view"><i class="fa fa-circle-o"></i> Manage Areas</a></li>
+            <li class="{{ (Request::is('cities/view') || Request::is('cities/create')) ? 'active' : '' }}"><a href="/cities/view"><i class="fa fa-circle-o"></i> Manage Cities</a></li>
+            <li class="{{ (Request::is('areas/view') || Request::is('areas/create')) ? 'active' : '' }}"><a href="/areas/view"><i class="fa fa-circle-o"></i> Manage Areas</a></li>
           </ul>
         </li>
-         @canViewCustomer
+        <!--canViewCustomer -->
         <li class=" treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Customers</span>
@@ -72,11 +72,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ (Request::is('users/view') || Request::is('users/create')) ? 'active' : '' }}"><a href="/users/view"><i class="fa fa-circle-o"></i> Manage Customers</a></li>
-            <li class="{{ (Request::is('users/view') || Request::is('users/create')) ? 'active' : '' }}"><a href="/users/view"><i class="fa fa-circle-o"></i> Manage Payments</a></li>
+            <li class="{{ (Request::is('customers/view') || Request::is('customers/create')) ? 'active' : '' }}"><a href="/customers/view"><i class="fa fa-circle-o"></i> Manage Customers</a></li>
+            <li class="{{ (Request::is('customers/payment/view')) ? 'active' : '' }}"><a href="/customers/payment/view"><i class="fa fa-circle-o"></i> Manage Payments</a></li>
           </ul>
         </li>
-        @endcanViewCustomer
+       <!-- endcanViewCustomer -->
         <li class=" treeview">
           <a href="#">
             <i class="fa fa-industry"></i> <span>Suppliers</span>

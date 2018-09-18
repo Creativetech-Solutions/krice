@@ -2,12 +2,12 @@
 
 @section('content-header')
       <h1>
-        Roles
+        Categories
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Roles</li>
+        <li class="active">Categories</li>
       </ol>
 @endsection
 
@@ -17,33 +17,33 @@
 <div class="row">
         <div class="col-xs-12">
           <!-- flash Messages -->
-          @if(session('global') == 'Role Created')
+          @if(session('global') == 'Category Created')
             <div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-check"></i> Role Created Successfully!</h4>
-                Role has been created successfully.
+                <h4><i class="icon fa fa-check"></i> Category Created Successfully!</h4>
+                Category has been created successfully.
               </div>
             @endif
-             @if(session('global') == 'Role Deleted')
+             @if(session('global') == 'Category Deleted')
             <div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-check"></i> Role Deleted Successfully!</h4>
-                Role has been deleted successfully.
+                <h4><i class="icon fa fa-check"></i> Category Deleted Successfully!</h4>
+                Category has been deleted successfully.
               </div>
             @endif
-             @if(session('global') == 'Role Updated')
+             @if(session('global') == 'Category Updated')
             <div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-check"></i> Role Updated Successfully!</h4>
-                Role has been updated successfully.
+                <h4><i class="icon fa fa-check"></i> Category Updated Successfully!</h4>
+                Category has been updated successfully.
               </div>
             @endif
             <!-- /flash Messages -->
-          <a type="button" class="btn btn-primary" href="/roles/create">Add New Role</a>
+          <a type="button" class="btn btn-primary" href="/categories/create">Add New Category</a>
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Available Roles</h3>
+              <h3 class="box-title">Available Categories</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -56,29 +56,23 @@
                 </tr>
                 </thead>
                 <tbody>
-              @if(isset($all_roles))
-              @foreach ($all_roles as  $key=>$role)
+                @if(isset($all_categories))
+              @foreach ($all_categories as  $key=>$category)
                 <tr>
                   <td>{{++$key}}</td>
-                  <td>{{$role->name}}
+                  <td>{{$category->name}}
                   </td>
-                 <td><a href="/role/{{$role->slug}}"><i class="fa fa-fw fa-edit"></i>Edit</a>  
-                <form method="POST" action="{{ route('role.destroy', ['id' => $role->id]) }}" id="delete-role{{$role->id}}">
+                 <td><a href="/category/{{$category->slug}}"><i class="fa fa-fw fa-edit"></i>Edit</a>  
+                <form method="POST" action="{{ route('category.destroy', ['id' => $category->id]) }}" id="delete-category{{$category->id}}">
                   {{ csrf_field() }}
                   <input name="_method" value="PUT" type="hidden">
-                  <a href="#" onclick="document.getElementById('delete-role{{$role->id}}').submit()"><i class="fa fa-fw fa-trash"></i> Delete</a></form></td>
+                  <a href="#" onclick="document.getElementById('delete-category{{$category->id}}').submit()"><i class="fa fa-fw fa-trash"></i> Delete</a></form></td>
                   
                 </tr>
                 @endforeach
                 @endif
-                
                 </tbody>
-                <!-- <tfoot>
-                <tr>
-                 <th>Sr. #</th>
-                  <th>Title</th>
-                </tr>
-                </tfoot> -->
+
               </table>
             </div>
             <!-- /.box-body -->

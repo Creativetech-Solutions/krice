@@ -61,6 +61,7 @@
                 </tr>
                 </thead>
                 <tbody>
+              @if(isset($all_users))
               @foreach($all_users as $key=>$user)
                 <tr>
                   <td>{{++$key}}</td>
@@ -94,6 +95,7 @@
                 </td>
                 </tr>
               @endforeach
+              @endif
                 
                 </tbody>
                 <!-- <tfoot>

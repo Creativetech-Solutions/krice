@@ -37,3 +37,5 @@ Route::put('/user/deactivate/{id}',  'UsersController@deactivate')->name('user.d
 Route::get('/login', 'LoginController@login');
 Route::post('/login', 'LoginController@postlogin');
 Route::post('/logout', 'LoginController@logout');
+
+Route::get('/categories/view', 'CategoriesController@view');

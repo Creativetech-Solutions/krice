@@ -38,4 +38,9 @@ Route::get('/login', 'LoginController@login');
 Route::post('/login', 'LoginController@postlogin');
 Route::post('/logout', 'LoginController@logout');
 
-Route::get('/categories/view', 'CategoriesController@view');
+Route::resource('categories', 'CategoriesController');
+Route::resource('products', 'ProductsController');
+
+Route::resource('cities', 'CitiesController');
+Route::resource('areas', 'AreasController');
+

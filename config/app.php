@@ -151,6 +151,8 @@ return [
          * Package Service Providers...
          */
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
+        App\Providers\AnnotationsServiceProvider::class,
+        PrettyRoutes\ServiceProvider::class,
         /*
          * Application Service Providers...
          */

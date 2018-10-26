@@ -44,3 +44,6 @@ Route::resource('products', 'ProductsController');
 Route::resource('cities', 'CitiesController');
 Route::resource('areas', 'AreasController');
 
+
+
+

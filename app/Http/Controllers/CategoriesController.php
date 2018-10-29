@@ -36,15 +36,16 @@ class CategoriesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {//dd($request->input());
         //$Category = App\Category::create(['name' => $request->input('name')]);
         //another create method 
         $category = new Category();
         $category->name = $request->input('name');
-        $category->slug = $this->createSlug($request->input('name'));
+        $category->slug = str_slug($request->input('name'));
+        $category->description = $request->input('description');
         $category->save();
         $message = "Category Created";
-        return redirect('/categories')->with('global', $message);;
+        return redirect('/categories')->with('global', $message);
     }
 
     /**
@@ -80,9 +81,11 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $category = Category::find($id);
         $category->name = $request->input('name');
         $category->slug = $this->createSlug($request->input('name'),$id);
+        $category->descripiton = $request->input('descripiton');
         $category->save();
         $message = "Category Updated";
         return redirect('/categories')->with('global', $message);;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\Product;
 
@@ -14,9 +15,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $product = Product::all();
-       
-        return view('catalog.products.view')->with("areas",$areas);
+        $products = Product::all();
+        return view('catalog.products.view')->with("products",$products);
     }
 
     /**
@@ -26,9 +26,8 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        $cities = City::all();
-
-        return view('catalog.products.create',compact('cities'));
+        $categories = Category::all();
+        return view('catalog.products.create',compact('categories', $categories));
     }
 
     /**
@@ -39,12 +38,13 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $area = new Area();
-        $area->name = $request->input('name');
-        $area->slug = str_slug($request->input('name'));
-        $area->city_id = $request->input('city');
-        $area->save();
+        //dd($request->input());
+        $product = new Product();
+        $product->name = $request->input('name');
+        $product->slug = str_slug($request->input('name'));
+        $product->description = $request->input('description');
+        $product->category_id = $request->input('categories');
+        $product->save();
         $message = "Product Created";
         return redirect('/products')->with('global', $message);;
     }
@@ -68,11 +68,10 @@ class ProductsController extends Controller
      */
     public function edit($slug)
     {
-        $area = Area::where('slug', $slug)->first();
-
-        $cities = City::all();
-    
-        return view('catalog.products.edit',compact('area','cities'));
+        $product = Product::where('slug', $slug)->first();
+        //dd($product);
+        $categories = Category::all();
+        return view('catalog.products.edit',compact('product','categories'));
     }
 
     /**
@@ -84,8 +83,12 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //dd($request->input());
         $product = Product::find($id);
-        $product->category_id = $request->input('category');
+        $product->name = $request->input('name');
+        $product->slug = str_slug($request->input('name'));
+        $product->description = $request->input('description');
+        $product->category_id = $request->input('categories');
         $product->save();
         $message = "Product Updated";
         return redirect('/products')->with('global', $message);;
@@ -99,7 +102,6 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-       
         $product = Product::find($id);
 
         $product->delete();

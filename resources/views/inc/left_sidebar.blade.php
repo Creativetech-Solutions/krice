@@ -111,7 +111,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ (Request::is('users/view') || Request::is('users/create')) ? 'active' : '' }}"><a href="/users/view"><i class="fa fa-circle-o"></i>Expense</a></li>
+            <li class="{{ (Request::is('expenses') || Request::is('users/create')) ? 'active' : '' }}"><a href="/expenses"><i class="fa fa-circle-o"></i>Expense</a></li>
             <li class="{{ (Request::is('users/view') || Request::is('users/create')) ? 'active' : '' }}"><a href="/users/view"><i class="fa fa-circle-o"></i>Expense Type</a></li>
            
           </ul>

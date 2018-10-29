@@ -65,3 +65,18 @@ $factory->define(App\Product::class, function (Faker $faker) {
     ];
 });
 
+$factory->define(App\Supplier::class, function (Faker $faker) {
+    return [
+        'area_id'=> function(){
+            return factory('App\Area')->create()->id;
+        },
+        'name' => $faker->name,
+        'address' => $faker->address,
+        'contact'=>$faker->phoneNumber,
+        'description'=>$faker->sentence,
+        'manager_name' => $faker->name,
+        'manager_contact'=>$faker->phoneNumber,
+        
+    ];
+});
+

@@ -114,7 +114,7 @@ class UsersController extends Controller
        
     }
 
-     public function destroy($id)
+    public function destroy($id)
     {   
         
         $user = Sentinel::findById($id);
@@ -127,7 +127,8 @@ class UsersController extends Controller
 
     }
 
-    public function activate($id){
+    public function activate($id)
+    {
 
         $user = Sentinel::findById($id);
         $Activation = Sentinel::getActivationRepository();

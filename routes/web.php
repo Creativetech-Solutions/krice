@@ -33,6 +33,13 @@ Route::put('/user/destroy/{id}',  'UsersController@destroy')->name('user.destroy
 Route::put('/user/activate/{id}',  'UsersController@activate')->name('user.activate');
 Route::put('/user/deactivate/{id}',  'UsersController@deactivate')->name('user.deactivate');
 
+Route::get('/suppliers/view',  'SuppliersController@index')->name('user.view');;
+Route::get('/suppliers/create',  'SuppliersController@create')->name('user.create');;
+Route::post('/suppliers/create',  'SuppliersController@store');
+Route::get('/suppliers/{id}/edit',  'SuppliersController@edit');
+Route::put('/supplier/update/{id}',  'SuppliersController@update')->name('supplier.update');
+Route::delete('/supplier/destroy/{id}',  'SuppliersController@destroy')->name('supplier.destroy');
+
 
 Route::get('/login', 'LoginController@login');
 Route::post('/login', 'LoginController@postlogin');
@@ -44,6 +51,12 @@ Route::resource('products', 'ProductsController');
 Route::resource('cities', 'CitiesController');
 Route::resource('areas', 'AreasController');
 
+Route::resource('supliers', 'SuppliersController');
 
 
 
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

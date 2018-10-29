@@ -33,7 +33,8 @@
                   <label>City</label>
                   <select class="form-control" name="city" required>
                     @foreach($cities as $city)
-                    <option value="{{$city->id}}" {{$area->city_id==$city->id?"selected":""}}>{{$city->name}}</option>
+                    <option value="{{$city->id}}" 
+                      {{$area->city_id==$city->id?"selected":""}}>{{$city->name}}</option>
                     @endforeach
                   </select>
                 </div>

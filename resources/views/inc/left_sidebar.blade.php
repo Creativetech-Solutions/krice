@@ -85,8 +85,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ (Request::is('users/view') || Request::is('users/create')) ? 'active' : '' }}"><a href="/users/view"><i class="fa fa-circle-o"></i> Manage Suppliers</a></li>
-            <li class="{{ (Request::is('users/view') || Request::is('users/create')) ? 'active' : '' }}"><a href="/users/view"><i class="fa fa-circle-o"></i> Manage Payments</a></li>
+            <li class="{{ (Request::is('suppliers/view') || Request::is('suppliers/create')) ? 'active' : '' }}"><a href="/suppliers/view"><i class="fa fa-circle-o"></i> Manage Suppliers</a></li>
+            <li class="{{ (Request::is('suppliers/view') || Request::is('suppliers/create')) ? 'active' : '' }}"><a href="/suppliers/view"><i class="fa fa-circle-o"></i> Manage Payments</a></li>
           </ul>
         </li>
          <li class=" treeview">

@@ -2,6 +2,7 @@
 
 use Faker\Generator as Faker;
 
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -21,3 +22,61 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+
+$factory->define(App\Category::class, function (Faker $faker) {
+    return [
+        
+        'name' => $faker->name,
+        'slug' => $faker->name,
+        
+    ];
+});
+
+$factory->define(App\City::class, function (Faker $faker) {
+    return [
+        
+        'name' => $faker->city,
+        'slug' => $faker->name,
+        
+    ];
+});
+
+$factory->define(App\Area::class, function (Faker $faker) {
+    return [
+        'city_id'=> function(){
+			return factory('App\City')->create()->id;
+        },
+        'name' => $faker->name,
+        'slug' => $faker->name,        
+        
+    ];
+});
+
+$factory->define(App\Product::class, function (Faker $faker) {
+    return [
+        'category_id'=> function(){
+			return factory('App\Category')->create()->id;
+        },
+        'name' => $faker->name,
+        'slug' => $faker->name,
+        'description'=>$faker->sentence,
+        
+    ];
+});
+
+$factory->define(App\Supplier::class, function (Faker $faker) {
+    return [
+        'area_id'=> function(){
+            return factory('App\Area')->create()->id;
+        },
+        'name' => $faker->name,
+        'address' => $faker->address,
+        'contact'=>$faker->phoneNumber,
+        'description'=>$faker->sentence,
+        'manager_name' => $faker->name,
+        'manager_contact'=>$faker->phoneNumber,
+        
+    ];
+});
+

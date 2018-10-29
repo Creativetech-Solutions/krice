@@ -47,6 +47,7 @@ Route::post('/logout', 'LoginController@logout');
 
 Route::resource('categories', 'CategoriesController');
 Route::resource('products', 'ProductsController');
+Route::resource('expense', 'ExpensesController');
 
 Route::resource('cities', 'CitiesController');
 Route::resource('areas', 'AreasController');

@@ -26,19 +26,19 @@ $factory->define(App\User::class, function (Faker $faker) {
 
 $factory->define(App\Category::class, function (Faker $faker) {
     return [
-        
+
         'name' => $faker->name,
         'slug' => $faker->name,
-        
+
     ];
 });
 
 $factory->define(App\City::class, function (Faker $faker) {
     return [
-        
+
         'name' => $faker->city,
         'slug' => $faker->name,
-        
+
     ];
 });
 
@@ -48,8 +48,8 @@ $factory->define(App\Area::class, function (Faker $faker) {
 			return factory('App\City')->create()->id;
         },
         'name' => $faker->name,
-        'slug' => $faker->name,        
-        
+        'slug' => $faker->name,
+
     ];
 });
 
@@ -61,7 +61,7 @@ $factory->define(App\Product::class, function (Faker $faker) {
         'name' => $faker->name,
         'slug' => $faker->name,
         'description'=>$faker->sentence,
-        
+
     ];
 });
 
@@ -76,7 +76,7 @@ $factory->define(App\Supplier::class, function (Faker $faker) {
         'description'=>$faker->sentence,
         'manager_name' => $faker->name,
         'manager_contact'=>$faker->phoneNumber,
-        
+
     ];
 });
 
